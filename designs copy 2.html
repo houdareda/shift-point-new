@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shift Point - Stats Design Concepts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --accent: #8b5cf6;
+            --accent-pink: #ec4899;
+            --text: #ffffff;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Cairo', sans-serif;
+            overflow-x: hidden;
+        }
+        .concept-label {
+            background: rgba(139, 92, 246, 0.2);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-weight: 800;
+            display: inline-block;
+            margin: 40px auto 20px;
+            text-align: center;
+            width: fit-content;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* CONCEPT 1: Immersive Story */
+        .c1-card {
+            width: 100%;
+            height: 600px;
+            position: relative;
+            border-radius: 40px;
+            overflow: hidden;
+            background: #111;
+        }
+        .c1-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.4);
+        }
+        .c1-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            text-align: center;
+        }
+        .c1-number {
+            font-size: 10rem;
+            font-weight: 900;
+            background: linear-gradient(180deg, rgba(255,255,255,0.4), transparent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 0.8;
+            margin-bottom: 20px;
+        }
+        .c1-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: 20px;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* CONCEPT 2: Cyber Dashboard */
+        .c2-card {
+            width: 100%;
+            background: #0a0a0a;
+            border: 2px solid #1a1a1a;
+            border-radius: 40px;
+            padding: 40px 20px;
+            position: relative;
+        }
+        .c2-visual {
+            width: 180px;
+            height: 180px;
+            border: 4px solid #1a1a1a;
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 0 40px rgba(139, 92, 246, 0.1);
+        }
+        .c2-visual::after {
+            content: '';
+            position: absolute;
+            inset: -10px;
+            border: 1px dashed rgba(139, 92, 246, 0.3);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+        .c2-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            text-shadow: 0 0 20px var(--accent);
+        }
+
+        /* CONCEPT 3: Artistic Mask */
+        .c3-card {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .c3-mask {
+            width: 100%;
+            height: 250px;
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+            border-radius: 40px 40px 0 0;
+            overflow: hidden;
+        }
+        .c3-mask img { width: 100%; height: 100%; object-fit: cover; }
+        .c3-info {
+            margin-top: -60px;
+            padding: 0 20px;
+        }
+        .c3-number-float {
+            font-size: 6rem;
+            font-weight: 900;
+            color: var(--accent-pink);
+            margin-bottom: -10px;
+            letter-spacing: -5px;
+        }
+
+        /* CONCEPT 4: Minimalist Luxury */
+        .c4-card {
+            width: 100%;
+            text-align: right;
+            padding: 20px;
+        }
+        .c4-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+        }
+        .c4-number {
+            font-size: 7rem;
+            font-weight: 900;
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--accent);
+            opacity: 0.5;
+        }
+        .c4-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--accent-pink);
+            border-radius: 50%;
+            margin-bottom: 15px;
+            box-shadow: 0 0 20px var(--accent-pink);
+        }
+        .c4-line {
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        h3 { font-size: 1.8rem; margin: 0 0 10px; font-weight: 800; }
+        p { font-size: 1rem; opacity: 0.7; line-height: 1.6; margin: 0; }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .nav-back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: white;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="nav-back">← رجوع للموقع</a>
+
+    <div class="container">
+        <div style="height: 60px;"></div>
+        
+        <!-- DESIGN 1 -->
+        <div class="concept-label">1. التصميم السينمائي</div>
+        <div class="c1-card">
+            <img src="stats-bg.jpg" class="c1-img">
+            <div class="c1-overlay">
+                <div class="c1-number">70%</div>
+                <div class="c1-content">
+                    <h3>من فريقنا بدأوا من الصفر</h3>
+                    <p>قمنا بتدريب العديد من الشباب الذين لم يكن لديهم أي خبرات سابقة، والآن هم قادة وخبراء.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="height: 60px;"></div>
+
+        <!-- DESIGN 2 -->
+        <div class="concept-label">2. التيك-داشبورد</div>
+        <div class="c2-card">
+            <div class="c2-visual">
+                <div class="c2-number">70%</div>
+            </div>
+            <div style="text-align: center;">
+                <h3>من فريقنا بدأوا من الصفر</h3>
+                <p>قمنا بتدريب العديد من الشباب الذين لم يكن لديهم أي خبرات سابقة، والآن هم قادة وخبراء يصنعون الفارق.</p>
+            </div>
+        </div>
+
+        <div style="height: 60px;"></div>
+
+        <!-- DESIGN 3 -->
+        <div class="concept-label">3. التداخل الفني</div>
+        <div class="c3-card">
+            <div class="c3-mask">
+                <img src="stats-bg.jpg">
+            </div>
+            <div class="c3-info">
+                <div class="c3-number-float">70%</div>
+                <h3>من فريقنا بدأوا من الصفر</h3>
+                <p>قمنا بتدريب العديد من الشباب الذين لم يكن لديهم أي خبرات سابقة، والآن هم قادة وخبراء يصنعون الفارق في عالم التسويق.</p>
+            </div>
+        </div>
+
+        <div style="height: 60px;"></div>
+
+        <!-- DESIGN 4 -->
+        <div class="concept-label">4. الفخامة الهادئة</div>
+        <div class="c4-card">
+            <div class="c4-header">
+                <div class="c4-dot"></div>
+                <div class="c4-number">70%</div>
+            </div>
+            <div class="c4-line"></div>
+            <h3>من فريقنا بدأوا من الصفر</h3>
+            <p>قمنا بتدريب العديد من الشباب الذين لم يكن لديهم أي خبرات سابقة، والآن هم قادة وخبراء يصنعون الفارق في عالم التسويق.</p>
+        </div>
+
+        <div style="height: 100px;"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shift Point - Ultra Premium Stats Designs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        :root {
+            --bg: #030303;
+            --accent: #8b5cf6;
+            --accent-pink: #ec4899;
+            --text: #ffffff;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Cairo', sans-serif;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 450px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .concept-title {
+            text-align: center;
+            margin: 60px 0 30px;
+        }
+        .concept-title span {
+            background: linear-gradient(90deg, var(--accent), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* CONCEPT 5: THE CINEMATIC LAYERS 2.0 */
+        .c5-wrapper {
+            position: relative;
+            height: 650px;
+            border-radius: 50px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+        .c5-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.5) saturate(1.2);
+            transform: scale(1.1);
+        }
+        .c5-number-wrap {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+        .c5-number {
+            font-size: 12rem;
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(180deg, #fff, transparent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.5));
+        }
+        .c5-glass-card {
+            position: absolute;
+            bottom: 30px;
+            left: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 35px;
+            padding: 30px;
+            z-index: 3;
+        }
+
+        /* CONCEPT 6: FLOATING GLASS STACK */
+        .c6-stack {
+            position: relative;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            perspective: 1000px;
+        }
+        .c6-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 25px;
+            margin-bottom: -40px;
+            transform: rotateX(10deg) rotateY(-5deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .c6-card.prio {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
+            border-color: rgba(255,255,255,0.2);
+            z-index: 2;
+        }
+        .c6-num {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--accent-pink);
+            margin-bottom: 5px;
+        }
+
+        /* CONCEPT 7: THE NEON PORTAL */
+        .c7-portal-wrap {
+            background: #080808;
+            border-radius: 50px;
+            padding: 50px 30px;
+            text-align: center;
+            border: 1px solid #111;
+            position: relative;
+            overflow: hidden;
+        }
+        .c7-glow {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--accent);
+            filter: blur(100px);
+            opacity: 0.2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .c7-circle {
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 40px;
+            border: 2px solid #1a1a1a;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .c7-circle-inner {
+            width: 180px;
+            height: 180px;
+            border: 8px solid transparent;
+            border-top-color: var(--accent);
+            border-right-color: var(--accent-pink);
+            border-radius: 50%;
+            animation: spin 3s linear infinite;
+        }
+        .c7-num {
+            position: absolute;
+            font-size: 4.5rem;
+            font-weight: 900;
+            text-shadow: 0 0 30px var(--accent);
+        }
+
+        /* CONCEPT 8: BENTO STATS */
+        .c8-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .c8-item {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 25px;
+        }
+        .c8-item.tall { grid-row: span 2; display: flex; flex-direction: column; justify-content: center; }
+        .c8-img-box {
+            height: 150px;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+        .c8-img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .c8-val { font-size: 3rem; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 10px; }
+
+        h3 { font-size: 1.6rem; margin: 0 0 10px; font-weight: 800; line-height: 1.3; }
+        p { font-size: 0.95rem; opacity: 0.6; line-height: 1.6; margin: 0; }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .nav-back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: white;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            z-index: 100;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="nav-back">← رجوع للموقع</a>
+
+    <div class="container">
+        
+        <div style="height: 40px;"></div>
+        <div style="text-align: center;">
+            <h1 style="font-size: 2.5rem; font-weight: 900; margin: 0;">مقترحات <span style="color:var(--accent-pink)">V2</span></h1>
+            <p>تصميمات ألترا-بريميوم للموبايل فقط</p>
+        </div>
+
+        <!-- DESIGN 5 -->
+        <div class="concept-title"><span>5. الطبقات السينمائية (The Layers)</span></div>
+        <div class="c5-wrapper">
+            <img src="stats-bg.jpg" class="c5-bg">
+            <div class="c5-number-wrap">
+                <div class="c5-number">70%</div>
+            </div>
+            <div class="c5-glass-card">
+                <h3>فريقنا بدأ من الصفر..</h3>
+                <p>حولنا الطموح إلى واقع ملموس، فكانت البداية من لا شيء والوصول إلى القمة هو هدفنا.</p>
+                <div style="margin-top: 15px; display: flex; gap: 10px;">
+                    <span style="font-size: 0.8rem; background: rgba(139, 92, 246, 0.3); padding: 4px 12px; border-radius: 10px;">#طموح</span>
+                    <span style="font-size: 0.8rem; background: rgba(236, 72, 153, 0.3); padding: 4px 12px; border-radius: 10px;">#نجاح</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESIGN 6 -->
+        <div class="concept-title"><span>6. الكروت الطافية (Floating Stack)</span></div>
+        <div class="c6-stack">
+            <div class="c6-card">
+                <p>البداية كانت بسيطة ولكنها مليئة بالشغف والتعلم المستمر.</p>
+            </div>
+            <div class="c6-card prio">
+                <div class="c6-num">70%</div>
+                <h3>من الكادر بدأ من الصفر</h3>
+            </div>
+            <div class="c6-card">
+                <p>واليوم نحن نقود السوق بخبراتنا المتراكمة وفريقنا المبدع.</p>
+            </div>
+        </div>
+
+        <!-- DESIGN 7 -->
+        <div class="concept-title"><span>7. البوابة الضوئية (Neon Portal)</span></div>
+        <div class="c7-portal-wrap">
+            <div class="c7-glow"></div>
+            <div class="c7-circle">
+                <div class="c7-circle-inner"></div>
+                <div class="c7-num">70%</div>
+            </div>
+            <h3>من فريقنا بدأوا من الصفر</h3>
+            <p>نحن لا نوظف الخبراء فقط، بل نصنعهم من خلال بيئة عمل محفزة ومطورة للعقول.</p>
+        </div>
+
+        <!-- DESIGN 8 -->
+        <div class="concept-title"><span>8. بينتو الإحصائيات (Bento Stats)</span></div>
+        <div class="c8-grid">
+            <div class="c8-item tall">
+                <div class="c8-val">70%</div>
+                <p style="opacity: 1; font-weight: 700;">من الفريق بدأوا رحلتهم من الصفر.</p>
+            </div>
+            <div class="c8-item">
+                <div class="c8-img-box">
+                    <img src="stats-bg.jpg">
+                </div>
+            </div>
+            <div class="c8-item" style="grid-column: span 1; background: var(--accent); color: white;">
+                <h4 style="margin:0">تطور</h4>
+                <p style="color:white; opacity:0.8">مستمر</p>
+            </div>
+        </div>
+
+        <div style="height: 100px;"></div>
+    </div>
+
+    <script>
+        // Simple entry animations
+        gsap.from(".concept-title", {
+            scrollTrigger: ".concept-title",
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.3
+        });
+    </script>
+</body>
+</html>
