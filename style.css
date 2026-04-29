@@ -734,89 +734,6 @@ h2 span {
 .roadmap-step:nth-child(odd) .step-content { margin-right: 40px; }
 .roadmap-step:nth-child(even) .step-content { margin-left: 40px; }
 
-/* 3. Academy Box */
-.academy-box {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 48px;
-    padding: 60px;
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 60px;
-    align-items: center;
-    backdrop-filter: blur(20px);
-}
-
-.academy-list {
-    list-style: none;
-    margin-top: 30px;
-}
-
-.academy-list li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-.academy-list i { color: var(--accent-primary); }
-
-.academy-stats {
-    display: grid;
-    gap: 30px;
-}
-
-.stat-item {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 30px;
-    border-radius: 24px;
-    text-align: center;
-}
-
-.stat-v {
-    display: block;
-    font-size: 3rem;
-    font-weight: 900;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.stat-l { opacity: 0.6; font-weight: 700; }
-
-/* 4. Testimonials */
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-}
-
-.testi-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--glass-border);
-    padding: 40px;
-    border-radius: 32px;
-    position: relative;
-}
-
-.quote-icon {
-    font-size: 2rem;
-    color: var(--accent-primary);
-    opacity: 0.3;
-    margin-bottom: 20px;
-}
-
-.testi-user {
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.user-info strong { display: block; color: #fff; }
-.user-info span { font-size: 0.9rem; opacity: 0.6; }
-
 /* 5. FAQ */
 .faq-list {
     max-width: 800px;
@@ -865,12 +782,15 @@ h2 span {
 
 /* Mobile WOW Factor (The Fix) */
 @media (max-width: 768px) {
-    .bg-blobs .blob { width: 200px; height: 200px; opacity: 0.3;}
+    .container { padding: 0 6vw; }
+    .section { padding: 15vw 0; }
+    
+    .bg-blobs .blob { width: 40vw; height: 40vw; opacity: 0.3;}
     
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
-        padding-bottom: 30px;
+        padding-bottom: 8vw;
     }
     
     .hero-text h1 {
@@ -893,6 +813,7 @@ h2 span {
     .btn-main, .btn-outline {
         font-size: 4.5vw;
         padding: 4vw 8vw;
+        border-radius: 4vw;
     }
     
     .hero-visual {
@@ -904,7 +825,6 @@ h2 span {
         max-width: 60vw;
     }
     
-    .section { padding: 15vw 0; }
     .badge { font-size: 3.2vw; padding: 1.5vw 4vw; margin-bottom: 4vw; }
     h2 { font-size: 9vw; margin-bottom: 8vw; line-height: 1.3; }
     
@@ -945,11 +865,13 @@ h2 span {
     .stats-footer-tags span { font-size: 3.2vw; padding: 1.5vw 4vw; }
     
     .form-card { padding: 10vw 6vw; border-radius: 8vw; }
+    .form-header { margin-bottom: 8vw !important; }
     .form-header h2 { font-size: 8vw; }
     .form-header p { font-size: 3.8vw; }
+    .form-group { margin-bottom: 6vw; }
     .form-group label { font-size: 3.5vw; margin-bottom: 2vw; }
     .form-input { font-size: 4vw; padding: 4vw 5vw; border-radius: 3vw; }
-    .btn-submit { font-size: 4.5vw; padding: 5vw; border-radius: 4vw; }
+    .btn-submit { font-size: 4.5vw; padding: 5vw; border-radius: 4vw; margin-top: 4vw; }
     
     .nav-links {
         position: fixed;
@@ -962,8 +884,8 @@ h2 span {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 40px;
-        gap: 40px;
+        padding: 10vw;
+        gap: 10vw;
         z-index: 2000;
         opacity: 0;
         visibility: hidden;
@@ -985,6 +907,7 @@ h2 span {
         display: flex;
         position: relative;
         z-index: 2001;
+        padding: 2vw;
     }
 
     .mobile-row {
@@ -992,27 +915,28 @@ h2 span {
         gap: 0 !important;
     }
     
+    footer { padding: 12vw 0; }
     footer .logo-text { font-size: 6vw; }
+    footer p { font-size: 3.2vw; margin-top: 3vw; }
+
     .services-grid { grid-template-columns: 1fr; gap: 4vw; }
     .service-card { padding: 8vw 6vw; border-radius: 6vw; }
-    .service-icon { font-size: 8vw; }
+    .service-icon { font-size: 8vw; margin-bottom: 4vw; }
+    .service-card h3 { font-size: 5.5vw; margin-bottom: 3vw; }
+    .service-card p { font-size: 3.8vw; line-height: 1.6; }
     
     .roadmap-line { left: 8vw; }
     .roadmap-step { justify-content: flex-start; padding-right: 0; padding-left: 15vw; margin-bottom: 10vw; }
     .roadmap-step:nth-child(even) { padding-left: 15vw; }
     .step-num { left: 8vw; width: 8vw; height: 8vw; font-size: 3.5vw; }
-    .step-content { width: 100%; margin: 0 !important; padding: 5vw; }
-    
-    .academy-box { grid-template-columns: 1fr; padding: 10vw 6vw; gap: 10vw; border-radius: 8vw; }
-    .academy-list li { font-size: 4vw; }
-    .stat-v { font-size: 8vw; }
-    
-    .testimonials-grid { grid-template-columns: 1fr; gap: 4vw; }
-    .testi-card { padding: 8vw 6vw; }
+    .step-content { width: 100%; margin: 0 !important; padding: 5vw; border-radius: 5vw; }
+    .step-content h3 { font-size: 4.8vw; margin-bottom: 2vw; }
+    .step-content p { font-size: 3.5vw; }
     
     .faq-question { padding: 5vw 6vw; }
     .faq-question h3 { font-size: 4.2vw; }
-    .faq-answer p { font-size: 3.8vw; }
+    .faq-answer { padding: 0 6vw; }
+    .faq-answer p { font-size: 3.8vw; padding-bottom: 5vw; }
 }
 
 /* Animations */
