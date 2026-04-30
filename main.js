@@ -189,13 +189,54 @@ document.querySelectorAll('.faq-question').forEach(question => {
     });
 });
 
-// Form Feedback
+// Form Validation & Feedback
 const form = document.getElementById('contact-form');
+const phoneInput = form.querySelector('input[type="tel"]');
+
+// Only allow numbers in phone input
+phoneInput.addEventListener('input', (e) => {
+    e.target.value = e.target.value.replace(/[^0-9]/g, '');
+});
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const btn = form.querySelector('.btn-submit');
+    const inputs = form.querySelectorAll('.form-input');
+    let isValid = true;
+
+    // Reset styles
+    inputs.forEach(input => input.classList.remove('error-state'));
+
+    // 1. Check Full Name (At least two words)
+    const nameInput = form.querySelector('input[placeholder="الأسم بالكامل"]');
+    if (nameInput.value.trim().split(' ').length < 2) {
+        nameInput.classList.add('error-state');
+        isValid = false;
+    }
+
+    // 2. Check Phone (At least 11 digits)
+    if (phoneInput.value.length < 11) {
+        phoneInput.classList.add('error-state');
+        isValid = false;
+    }
+
+    // 3. Check other required fields
+    inputs.forEach(input => {
+        if (input.required && !input.value.trim()) {
+            input.classList.add('error-state');
+            isValid = false;
+        }
+    });
+
+    if (!isValid) {
+        // Play shake animation (CSS class)
+        btn.classList.add('shake');
+        setTimeout(() => btn.classList.remove('shake'), 500);
+        return;
+    }
+
+    // Success Flow
     const originalText = btn.textContent;
-    
     btn.disabled = true;
     btn.textContent = 'جاري الإرسال...';
     
