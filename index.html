@@ -278,51 +278,51 @@
                     <form id="contact-form">
                         <div class="form-group">
                             <label>الاسم بالكامل *</label>
-                            <input type="text" class="form-input" placeholder="الأسم بالكامل" required>
+                            <input type="text" name="Name" class="form-input" placeholder="الأسم بالكامل" required>
                         </div>
                         <div class="form-group">
                             <label>رقم الهاتف *</label>
-                            <input type="tel" class="form-input" placeholder="رقم الهاتف" required>
+                            <input type="tel" name="Phone" class="form-input" placeholder="رقم الهاتف" required>
                         </div>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="mobile-row">
                             <div class="form-group">
                                 <label>عمرك كم سنة ؟ *</label>
-                                <input type="number" class="form-input" placeholder="العمر" required>
+                                <input type="number" name="Age" class="form-input" placeholder="العمر" required>
                             </div>
                             <div class="form-group">
                                 <label>المحافظة التي تقيم بها *</label>
-                                <input type="text" class="form-input" placeholder="المحافظة" required>
+                                <input type="text" name="Governorate" class="form-input" placeholder="المحافظة" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>المؤهل الدراسي *</label>
-                            <input type="text" class="form-input" placeholder="المؤهل الدراسي" required>
+                            <input type="text" name="Qualification" class="form-input" placeholder="المؤهل الدراسي" required>
                         </div>
                         <div class="form-group">
                             <label>اكتب عن الخبرات السابقة والمجالات التي عملت بها *</label>
-                            <textarea class="form-input" style="height: 120px; resize: none;" placeholder="ادخل اجابتك هنا" required></textarea>
+                            <textarea name="Experience" class="form-input" style="height: 120px; resize: none;" placeholder="ادخل اجابتك هنا" required></textarea>
                         </div>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;" class="mobile-row">
                             <div class="form-group">
                                 <label>الحالة الاجتماعية *</label>
-                                <select class="form-input" required>
+                                <select name="MaritalStatus" class="form-input" required>
                                     <option value="" disabled selected>اختر الحالة الاجتماعية</option>
-                                    <option>أعزب</option>
-                                    <option>متزوج</option>
+                                    <option value="أعزب">أعزب</option>
+                                    <option value="متزوج">متزوج</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>نوع الوظيفة اللي حضرتك بتقدم ليها ؟ *</label>
-                                <input type="text" class="form-input" placeholder="نوع الوظيفة" required>
+                                <input type="text" name="JobType" class="form-input" placeholder="نوع الوظيفة" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>في حد رشحنا ليك او عندك اي خلفية عن الشغل معانا ؟ *</label>
-                            <input type="text" class="form-input" placeholder="ادخل اجابتك هنا" required>
+                            <input type="text" name="Referral" class="form-input" placeholder="ادخل اجابتك هنا" required>
                         </div>
                         <div class="form-group">
                             <label>برجاء ارفاق ال CV أو الصور (اختياري)</label>
-                            <input type="file" class="form-input">
+                            <input type="file" name="CV" class="form-input">
                         </div>
                         <button type="submit" class="btn-submit">إرسال الطلب</button>
                         <p style="text-align: center; margin-top: 24px; font-size: 0.8rem; opacity: 0.5;">* لا يتم مشاركة بياناتكم مع أي جهة</p>
